@@ -5,16 +5,17 @@
 <body>
 <script>
 
-function computerPlay(){
-  let num = Math.random(){
-  function hand(){
-  if (num > .7);
-  return "rock"
-  } elseif {
-  (.4 <= num <= .7);
-  return "paper"
+function computerPlay() {
+  let num = Math.random();
+  num *= 4;
+  num = Math.floor(num);
+  if (num = 3) {
+  return "rock";
+  } else if (num = 2) {
+  return "paper";
   } else {
-  return "scissors"
+   return "scissors"
+  }
 }
 
 const playerSelection = 'rock'
