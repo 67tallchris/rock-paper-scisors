@@ -5,22 +5,62 @@
 <body>
 <script>
 
+
+function playRound(choice1, choice2){
+  if (choice1 == choice2) {
+  return "You both played the same sign silly";
+  } else if (choice1  == 'rock' ) {
+      if (choice2 == 'paper') {
+      return playerLost();
+      } else { // choice 2 is scissors
+      return playerWon();
+      }     
+  } else if (choice1 == 'paper') {
+      if (choice2 == 'rock') {
+      return playerWon();
+      } else { // choice2 is scissors
+      return playerLost();
+      }
+  } else { // choice1 is scissors
+      if (choice2 == 'rock') {
+      return playerLost();
+      } else (choice2 == 'paper') {
+      return playerWon();
+      }
+    }
+}
+
+
 function computerPlay() {
   let num = Math.random();
   num *= 4;
   num = Math.floor(num);
   if (num = 3) {
-  return "rock";
+  return rock;
   } else if (num = 2) {
-  return "paper";
+  return paper;
   } else {
-   return "scissors"
+   return scissors;
   }
 }
 
-const playerSelection = 'rock'
-const computerSelection = computerPlay()
-console.log(playRound(playerSelection, computerSelection))
+// Convert selection to lowercase
+function convertSelection() {
+  playerSelection.toLowerCase;
+}
+
+function playerWon() {
+  return "You Won!" + playerSelection + "beats" + computerSelection;
+}
+
+function playerLost() {
+  return "You Lost!" + computerSelection + "beats" playerSelection;
+}
+
+
+const playerSelection = 'rock';
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 
 </script>
