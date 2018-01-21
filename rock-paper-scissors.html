@@ -24,7 +24,7 @@ function playRound(choice1, choice2){
   } else { // choice1 is scissors
       if (choice2 == 'rock') {
       return playerLost();
-      } else (choice2 == 'paper') {
+      } else { // choice 2 is paper 
       return playerWon();
       }
     }
@@ -33,14 +33,12 @@ function playRound(choice1, choice2){
 
 function computerPlay() {
   let num = Math.random();
-  num *= 4;
-  num = Math.floor(num);
-  if (num = 3) {
-  return rock;
-  } else if (num = 2) {
-  return paper;
+  if (num < 0.34) {
+  return 'rock';
+  } else if (num <= .67) {
+  return 'paper';
   } else {
-   return scissors;
+   return 'scissors';
   }
 }
 
@@ -50,13 +48,14 @@ function convertSelection() {
 }
 
 function playerWon() {
-  return "You Won!" + playerSelection + "beats" + computerSelection;
+  return "You Won! " + playerSelection + " beats " + computerSelection;
 }
 
 function playerLost() {
-  return "You Lost!" + computerSelection + "beats" playerSelection;
+  return "You Lost! " + computerSelection + " beats " + playerSelection;
 }
 
+// add convertSelection() once user interface is added
 
 const playerSelection = 'rock';
 const computerSelection = computerPlay();
