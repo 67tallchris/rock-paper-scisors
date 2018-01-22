@@ -5,6 +5,8 @@
 <body>
 <script>
 
+let winCount;
+let loseCount;
 
 function playRound(choice1, choice2){
   if (choice1 == choice2) {
@@ -42,6 +44,7 @@ function computerPlay() {
   }
 }
 
+
 // Convert selection to lowercase
 function convertSelection() {
   playerSelection.toLowerCase;
@@ -49,24 +52,34 @@ function convertSelection() {
 
 function playerWon() {
   return "You Won! " + playerSelection + " beats " + computerSelection;
+  winCount += ++winCount;
 }
 
 function playerLost() {
   return "You Lost! " + computerSelection + " beats " + playerSelection;
+  loseCount += ++loseCount;
 }
 
+function gameCount() {
+  console.log("You have won " + winCount + " times, but the computer beat you " + loseCount + " times.");
+}
 // add convertSelection() once user interface is added
 
 const playerSelection = 'rock';
 const computerSelection = computerPlay();
 
+console.info("checking if this prints")
+
 function game() {
-  while (i > 0) {
+  let winCount = 0;
+  let loseCount = 0;
   i = 5;
+  while (i > 0) {
   console.log(playRound(playerSelection, computerSelection));
-  
-  -- 1;
+  i--;
   }
+gameCount();
+console.info("info in gameCount",gameCount());
 }
 </script>
 </body>
