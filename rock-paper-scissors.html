@@ -51,13 +51,13 @@ function convertSelection() {
 }
 
 function playerWon() {
+  winCount == ++winCount;
   return "You Won! " + playerSelection + " beats " + computerSelection;
-  let winCount += ++winCount;
 }
 
 function playerLost() {
+  let loseCount = loseCount +1;
   return "You Lost! " + computerSelection + " beats " + playerSelection;
-  let loseCount += ++loseCount;
 }
 
 function gameCount() {
@@ -74,15 +74,16 @@ function game() {
   let winCount = 0;
   let loseCount = 0;
   i = 5;
-  while (i > 0) {
-  console.log(playRound(playerSelection, computerSelection));
-  i--;
-  }
-gameCount();
-console.info("info in gameCount",gameCount());
+    while (i > 0) {
+    console.log(playRound(playerSelection, computerSelection));
+    i--;
+    }
+  gameCount();
+  console.info("info in gameCount",gameCount());
 }
 
 game();
+gameCount();
 </script>
 </body>
 </html>
