@@ -52,12 +52,12 @@ function convertSelection() {
 
 function playerWon() {
   return "You Won! " + playerSelection + " beats " + computerSelection;
-  winCount += ++winCount;
+  let winCount += ++winCount;
 }
 
 function playerLost() {
   return "You Lost! " + computerSelection + " beats " + playerSelection;
-  loseCount += ++loseCount;
+  let loseCount += ++loseCount;
 }
 
 function gameCount() {
@@ -81,6 +81,8 @@ function game() {
 gameCount();
 console.info("info in gameCount",gameCount());
 }
+
+game();
 </script>
 </body>
 </html>
