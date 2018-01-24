@@ -51,12 +51,12 @@ function convertSelection() {
 }
 
 function playerWon() {
-  winCount == ++winCount;
+  winCount++;
   return "You Won! " + playerSelection + " beats " + computerSelection;
 }
 
 function playerLost() {
-  let loseCount = loseCount +1;
+  loseCount++;
   return "You Lost! " + computerSelection + " beats " + playerSelection;
 }
 
@@ -67,8 +67,6 @@ function gameCount() {
 
 const playerSelection = 'rock';
 const computerSelection = computerPlay();
-
-console.info("checking if this prints")
 
 function game() {
   let winCount = 0;
