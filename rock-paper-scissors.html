@@ -5,8 +5,11 @@
 <body>
 <script>
 
-let winCount;
-let loseCount;
+class rockPaperScissors{
+  constructor (){
+    this.loseCount;
+    this.winCount;
+  }
 
 function playRound(choice1, choice2){
   if (choice1 == choice2) {
