@@ -11,80 +11,79 @@ class rockPaperScissors{
     this.winCount;
   }
 
-function playRound(choice1, choice2){
-  if (choice1 == choice2) {
-  return "You both played the same sign silly";
-  } else if (choice1  == 'rock' ) {
-      if (choice2 == 'paper') {
-      return playerLost();
-      } else { // choice 2 is scissors
-      return playerWon();
-      }     
-  } else if (choice1 == 'paper') {
-      if (choice2 == 'rock') {
-      return playerWon();
-      } else { // choice2 is scissors
-      return playerLost();
+  compare(choice1, choice2){
+    if (choice1 == choice2) {
+    return "You both played the same sign silly";
+    } else if (choice1  == 'rock' ) {
+	if (choice2 == 'paper') {
+	return playerLost();
+	} else { // choice 2 is scissors
+	return playerWon();
+	}     
+    } else if (choice1 == 'paper') {
+	if (choice2 == 'rock') {
+	return playerWon();
+	} else { // choice2 is scissors
+	return playerLost();
+	}
+    } else { // choice1 is scissors
+	if (choice2 == 'rock') {
+	return playerLost();
+	} else { // choice 2 is paper 
+	return playerWon();
+	}
       }
-  } else { // choice1 is scissors
-      if (choice2 == 'rock') {
-      return playerLost();
-      } else { // choice 2 is paper 
-      return playerWon();
-      }
+  }
+
+  playRound() {
+    return compare(playerSelection(), computerSelection())
+  }
+  computerSelection() {
+    let num = Math.random();
+    if (num < 0.34) {
+    return 'rock';
+    } else if (num <= .67) {
+    return 'paper';
+    } else {
+     return 'scissors';
     }
-}
+  }
+  
+  playerSelection() {
+  return "rock";
+  }
 
+  // Convert selection to lowercase
+  convertSelection() {
+    playerSelection.toLowerCase;
+  }
 
-function computerPlay() {
-  let num = Math.random();
-  if (num < 0.34) {
-  return 'rock';
-  } else if (num <= .67) {
-  return 'paper';
-  } else {
-   return 'scissors';
+  playerWon() {
+    winCount++;
+    return "You Won! " + playerSelection + " beats " + computerSelection;
+  }
+
+  playerLost() {
+    loseCount++;
+    return "You Lost! " + computerSelection + " beats " + playerSelection;
+  }
+
+  gameCount() {
+    console.log("You have won " + winCount + " times, but the computer beat you " + loseCount + " times.");
   }
 }
 
-
-// Convert selection to lowercase
-function convertSelection() {
-  playerSelection.toLowerCase;
-}
-
-function playerWon() {
-  winCount++;
-  return "You Won! " + playerSelection + " beats " + computerSelection;
-}
-
-function playerLost() {
-  loseCount++;
-  return "You Lost! " + computerSelection + " beats " + playerSelection;
-}
-
-function gameCount() {
-  console.log("You have won " + winCount + " times, but the computer beat you " + loseCount + " times.");
-}
-// add convertSelection() once user interface is added
-
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-
 function game() {
-  let winCount = 0;
-  let loseCount = 0;
-  i = 5;
-    while (i > 0) {
-    console.log(playRound(playerSelection, computerSelection));
-    i--;
-    }
-  gameCount();
+  var game = new rockPaperScissors()
+    for (var i = 0; i < 5;i++) {
+ 
+    console.log(game.playRound());
+  }
+  game.gameCount();
   console.info("info in gameCount",gameCount());
 }
 
 game();
-gameCount();
 </script>
 </body>
 </html>
